@@ -16,7 +16,7 @@
     Document Title
     =============================================
     -->
-    <title>U2| Analítica Digital | Capacitaciones</title>
+    <title>U1| Analítica Digital | Capacitaciones</title>
     <!--  
     Favicons
     =============================================
@@ -82,7 +82,7 @@
         <div class="titan-caption">
           <div class="caption-content">
             <div class="font-alt mb-30 titan-title-size-1">Hola &amp; Bienvenido</div>
-            <div class="font-alt mb-40 titan-title-size-4">Analítica Digital</div><a class="section-scroll btn btn-border-w btn-round" href="#about">Comenzar</a>
+            <div class="font-alt mb-40 titan-title-size-4">Analítica Digital</div><a id="btn_banner" class="section-scroll btn btn-border-w btn-round" href="#about" onclick="clickBanner()">Comenzar</a>
           </div>
         </div>
       </section>
@@ -118,7 +118,7 @@
                   <div class="features-icon"><span class="icon-lightbulb"></span></div>
                   <h3 class="features-title font-alt">Analítica Técnica</h3>
                   <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.</p>
-                  <button class="btn btn-border-d btn-round" type="submit">Conoce más</button>
+                  <button id="btn_conoce_tecnico" class="btn btn-border-d btn-round" type="submit" onclick="clickConoceTecnica()">Conoce más</button>
                 </div>
               </div>
               <div class="col-md-4 col-sm-6 col-xs-12">
@@ -126,7 +126,7 @@
                   <div class="features-icon"><span class="icon-bike"></span></div>
                   <h3 class="features-title font-alt">Analítica Estratégica</h3>
                   <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.</p>
-                  <button class="btn btn-border-d btn-round" type="submit">Conoce más</button>
+                  <button id="btn_conoce_estrategia" class="btn btn-border-d btn-round" type="submit" onclick="clickConoceEstrategica()">Conoce más</button>
                 </div>
               </div>
               <div class="col-md-4 col-sm-6 col-xs-12">
@@ -134,7 +134,7 @@
                   <div class="features-icon"><span class="icon-tools"></span></div>
                   <h3 class="features-title font-alt">Visualización de datos</h3>
                   <p>Careful attention to detail and clean, well structured code ensures a smooth user experience for all your visitors.</p>
-                  <button class="btn btn-border-d btn-round" type="submit">Conoce más</button>
+                  <button id="btn_conoce_visualizacion" class="btn btn-border-d btn-round" type="submit" onclick="clickConoceVisualizacion()">Conoce más</button>
                 </div>
               </div>
             </div>
@@ -164,7 +164,7 @@
             </div>
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
-                <form id="contactForm" role="form" method="post" action="php/contact.php">
+                <form id="contactForm" role="form" method="post" onclick="sumbitForm()">
                   <div class="form-group">
                     <label class="sr-only" for="name">Name</label>
                     <input class="form-control" type="text" id="name" name="name" placeholder="Tu nombre*" required="required" data-validation-required-message="Por favor, ingresa tu nombre."/>
@@ -222,5 +222,109 @@
     <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="../assets/js/plugins.js"></script>
     <script src="../assets/js/main.js"></script>
+
+    <!-- MARCACIONES -->
+
+    <script>
+      function sumbitForm() {
+          alert("Envío satisfactorio de formulario.");
+
+          dataLayer.push({
+            
+              'event': 'virtualEvent',
+              'category': 'Landing Analytics',
+              'action': 'Formulario',
+              'label': 'Envío satisfactorio'
+          });
+      }
+
+      function clickBanner() {
+          console.log('Hola');
+          dataLayer.push({
+              'event': 'virtualEvent',
+              'category': 'Landing Capacitaciones',
+              'action': 'Banner',
+              'label': 'Click Banner'
+          });
+
+          dataLayer.push({
+            'event': 'promotionClick',
+                  'ecommerce': {                                
+                    'promoClick': {                              
+                            'promotions': [{
+                              'id': '00001',
+                              'name': 'Banner Principal',
+                              'position': 'Home - Banner principal - 1',
+                              'creative': '(not available)'
+                            }]
+                      }
+            }
+            });
+
+      }
+
+      function clickConoceEstrategica() {
+        console.log('clickConoceEstrategica');
+          dataLayer.push({
+              'event': 'virtualEvent',
+              'category': 'Landing Analytics',
+              'action': 'Conoce más',
+              'label': 'Analítica Estratégica'
+          });
+      }
+
+      function clickConoceTecnica() {
+          console.log('clickConoceTecnica');
+          dataLayer.push({
+              'event': 'virtualEvent',
+              'category': 'Landing Analytics',
+              'action': 'Conoce más',
+              'label': 'Analítica Técnica'
+          });
+      }
+
+      function clickConoceVisualizacion() {
+        console.log('clickConoceVisualizacion');
+          dataLayer.push({
+              'event': 'virtualEvent',
+              'category': 'Landing Analytics',
+              'action': 'Conoce más',
+              'label': 'Visualización de datos'
+          });
+      }
+
+      function clicMenu() {
+          dataLayer.push({
+              'event': 'virtualEvent',
+              'category': 'Landing Analytics',
+              'action': 'Menu',
+              'label': 'Lo necesito'
+          });
+      }
+
+</script>
+<script>
+    dataLayer.push({
+  'event': 'virtualPage',
+  'pagePath': '/home',
+  'pageName': 'U1| Analítica Digital | Capacitaciones'
+  });
+
+  dataLayer.push({
+'event': 'promotionView',
+       'ecommerce': {                                
+         'promoView': {                              
+                'promotions': [{
+                     'id': '00001',
+                    'name': 'Banner Principal',
+                       'position': 'Home - Banner principal - 1',
+                       'creative': '(not available)'
+                 }]
+          }
+}
+});
+
+
+</script>
   </body>
 </html>
